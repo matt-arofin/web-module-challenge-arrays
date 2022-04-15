@@ -205,7 +205,7 @@ function getAverageWordLength(arr){
   average = count / arr.length
   return average
 }
-console.log(getAverageWordLength(originalFlavors))
+
 
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
@@ -223,13 +223,22 @@ Use the getRandomFlavors function and new arrays below to do the following:
 
 function getRandomFlavors(arr1, arr2, arr3, arr4){
   const grandArr = [...originalFlavors,...newFlavors,...seasonalFlavors,...regionalFlavors]
-  let newList = []
+  let newList = [];
   for(let i = 0; i < 32; i++){
-    let pointer = (Math.random()*125);
-    console.log(pointer)
-    
+    let usedIndex = [];
+    let randInt = Math.random()*125;
+    let pointer = Math.floor(randInt);
+    console.log(pointer);
+    if(!usedIndex.includes(pointer)){
+      if(pointer < grandArr.length){
+        newList.push(grandArr[pointer]);
+        usedIndex.push(pointer);
+      }
+    }    
   } return newList
 }
+
+
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
@@ -311,6 +320,9 @@ const regionalFlavors = [
   "Chocolate Chocolate Chip Cheesecake",
   "Caramel 'n' Cookies"
 ]
+
+
+console.log(getRandomFlavors(newFlavors, seasonalFlavors, regionalFlavors, originalFlavors))
 
 
 
