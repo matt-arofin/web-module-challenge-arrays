@@ -225,7 +225,8 @@ function getRandomFlavors(arr1, arr2, arr3, arr4){
   const grandArr = [...originalFlavors,...newFlavors,...seasonalFlavors,...regionalFlavors]
   let newList = []
   for(let i = 0; i < 32; i++){
-    let pointer = Math.random();
+    let pointer = (Math.random()*125);
+    console.log(pointer)
     
   } return newList
 }
